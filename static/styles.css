@@ -9,6 +9,8 @@ body {
     margin-left: 65%
 }
 
+
+
 main .form-control
 {
     /* center form controls */
@@ -57,10 +59,12 @@ main img
 }
 
 .googleimg {
+    margin-top: -0.6%;
     width: 30px;
 }
 
 .facebookimg {
+    margin-top: -0.5%;
     width: 25px
 }
 
@@ -82,4 +86,81 @@ main img
 .right {
     margin-right: 10%;
     float:right;
+}
+
+.trending-header {
+    text-align: left;
+    margin-left: 5.2%;
+    margin-top: 1%;
+    font-size: 96px;
+    line-height: 112px;
+    color: #454545;
+}
+
+.twitter-trending {
+    position: absolute;
+    float: left;
+    width: 520px;
+    height: 720px;
+    margin-left: 5.4%;
+    background: #EBEBEB;
+    border-radius: 40px;
+}
+
+.twitter-heading{
+    color:rgb(29, 161, 242);
+}
+.google-heading {
+    color: crimson;
+}
+.facebook-heading {
+    color: rgb(1, 48, 202);
+}
+.trending-site {
+    margin-top: 5%;
+    margin-left: 5%;
+    text-align: left;
+    font-size: 30px;
+    line-height: 35px;
+}
+
+.topic
+{
+    margin-top: 5%;
+    text-align: left;
+    margin-left: 5%;
+    font-size: 1.7em;
+    margin-bottom: 0%;
+}
+
+.subHeading {
+    text-align: left;
+    font-size: 1em;
+    margin-left: -3.5%;
+    margin-top: -2%;
+
+}
+
+.google-trending {
+    position: absolute;
+    float: left;
+    margin-top: 0;
+    width: 520px;
+    height: 720px;
+    margin-left: 35.4%;
+    background: #EBEBEB;
+    border-radius: 40px;
+}
+
+
+
+.facebook-trending {
+    position: absolute;
+    float: left;
+    margin-top: 0;
+    width: 520px;
+    height: 720px;
+    margin-left: 65.4%;
+    background: #EBEBEB;
+    border-radius: 40px;
 }

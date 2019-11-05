@@ -89,6 +89,8 @@ def register():
             "password"), method='pbkdf2:sha256', salt_length=8)
         username = request.form.get("username")
         sqlqueries.insertUser(username, hashed)
+
+        return render_template("login.html")
     return render_template("register.html")
 
 
