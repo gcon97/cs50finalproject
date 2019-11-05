@@ -9,8 +9,10 @@ db = database.cursor()
 app = Flask(__name__)
 
 
-@app.route('/login')
+@app.route('/login', methods=["GET", "POST"])
 def login():
+    if request.method == "POST":
+        print("Sumbitted")
     return render_template("login.html")
 
 
