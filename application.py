@@ -1,17 +1,30 @@
-from flask import Flask, redirect, render_template, session, request
+import os
+from flask import Flask, redirect, render_template, session, request, flash
 import sqlite3
 from flask_session import Session
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
 from werkzeug.security import check_password_hash, generate_password_hash
+from functools import wraps
 database = sqlite3.connect('trending.db')
 db = database.cursor()
 
 
 app = Flask(__name__)
+app.secret_key = os.urandom(24)
 
-SESSION_TYPE = 'redis'
-app.config.from_object(__name__)
-Session(app)
+
+def login_required(f):
+    """
+    Decorate routes to require login.
+
+    http://flask.pocoo.org/docs/1.0/patterns/viewdecorators/
+    """
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if session.get("user_id") is None:
+            return redirect("/login")
+        return f(*args, **kwargs)
+    return decorated_function
 
 
 @app.route('/set/')
@@ -74,22 +87,26 @@ def checkUser(username):
 
 @app.route('/login', methods=["GET", "POST"])
 def login():
+
+    session.clear()
     # User reached route via POST (as by submitting a form via POST)
     if request.method == "POST":
         # Ensure username was submitted
         if not request.form.get("username"):
+            flash("Please enter a username")
             return render_template("login.html")
 
         # Ensure password was submitted
         elif not request.form.get("password"):
+            flash("Please enter a password")
             return render_template("login.html")
 
         # Query database for username
         records = checkUser(request.form.get("username"))
         # Ensure username exists and password is correct
         if len(records) != 1 or not check_password_hash(records[0]["hash"], request.form.get("password")):
+            flash("Incorrect Username or Password")
             return render_template("login.html")
-
         session["user_id"] = records[0]['userID']
 
         # Redirect user to home page
@@ -104,6 +121,8 @@ def login():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """Register user"""
+    session.clear()
+
     if request.method == "POST":
             # Ensure username was submitted
         if not request.form.get("username"):
@@ -118,6 +137,24 @@ def register():
         username = request.form.get("username")
         insertUser(username, hashed)
     return render_template("register.html")
+
+
+@app.route("/changepwd", methods=["GET", "POST"])
+def changepwd():
+    return render_template("changepwd.html")
+
+
+@app.route("/")
+@login_required
+def index():
+
+    return render_template('index.html')
+
+
+@app.route("/logout")
+def logout():
+    session.clear()
+    return render_template('login.html')
 
 
 if __name__ == '__main__':

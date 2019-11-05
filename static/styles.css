@@ -5,6 +5,10 @@ body {
     margin-left: 80%;
 }
 
+.navlessright {
+    margin-left: 65%
+}
+
 main .form-control
 {
     /* center form controls */

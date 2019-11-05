@@ -49,6 +49,14 @@
                         <a class="nav-link" href="#">Google</a>
                     </li>
                 </ul>
+                <ul class="navbar-nav navlessright">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/changepwd">Change Password</a>
+                    </li>
+                    <li class="navitem">
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                </ul>
                 {% else %}
                 <ul class="navbar-nav navright">
                     <li class="nav-item">
@@ -56,6 +64,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/register">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/changepwd">Change Password</a>
                     </li>
                 </ul>
                 {% endif %}
@@ -66,6 +77,8 @@
         <header>
             <div class="alert alert-primary border text-center"
                 role="alert">
+                <button type="button" class="close" data-dismiss="alert"
+                    aria-label="Close">x</button>
                 {{ get_flashed_messages() | join(" ") }}
             </div>
         </header>
