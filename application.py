@@ -91,6 +91,7 @@ def login():
     session.clear()
     # User reached route via POST (as by submitting a form via POST)
     if request.method == "POST":
+
         # Ensure username was submitted
         if not request.form.get("username"):
             flash("Please enter a username")
@@ -126,11 +127,14 @@ def register():
     if request.method == "POST":
             # Ensure username was submitted
         if not request.form.get("username"):
-            return render_template("apology.html")
+            flash("Please enter a username")
+            return render_template("register.html")
         elif not request.form.get("password"):
-            return render_template("apology.html")
+            flash("Please enter a password")
+            return render_template("register.html")
         elif request.form.get("password") != request.form.get("confirmation"):
-            return render_template("apology.html")
+            flash("Passwords do not match")
+            return render_template("register.html")
 
         hashed = generate_password_hash(request.form.get(
             "password"), method='pbkdf2:sha256', salt_length=8)
