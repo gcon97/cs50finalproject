@@ -6,6 +6,8 @@ from werkzeug.exceptions import default_exceptions, HTTPException, InternalServe
 from werkzeug.security import check_password_hash, generate_password_hash
 from functools import wraps
 import sqlqueries
+import twitterTrending as tt
+
 database = sqlite3.connect('trending.db')
 db = database.cursor()
 
@@ -102,8 +104,8 @@ def changepwd():
 @app.route("/")
 @login_required
 def index():
-
-    return render_template('index.html')
+    trending = tt.twitteruk7()
+    return render_template('index.html', trending=trending)
 
 
 @app.route("/logout")

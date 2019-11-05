@@ -13,10 +13,18 @@ Home
             class="twitterimg"
             src="/static/images/twitterblue.png"
             alt="Twitter Logo"></h2>
-    <h3 class="topic">Topic</h3>
-    <small class="text-muted subHeading">Lorem ipsum dolor sit amet,
-        consectetur
-        adipiscingelit.</small>
+    <div class="topic-container">
+
+    </div>
+    {% for trends in trending %}
+
+
+    <h3 class="topic"><a href="{{trends['url']}}">{{trends['trend']}}</a></h3>
+    <small class="text-muted subHeading">{{trends['url']}}</small>
+
+    {% endfor %}
+    </div>
+
 </div>
 
 <div class="google-trending">
