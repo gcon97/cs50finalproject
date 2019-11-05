@@ -1,4 +1,6 @@
-
+body {
+    font-family: 'Montserrat', sans-serif;
+}
 .navright {
     margin-left: 80%;
 }
@@ -27,3 +29,43 @@ main img
     max-width: 100%;
 }
 
+.blue {
+    float: left;
+    background-color: rgb(4, 13, 133);
+    width: 40%;
+    height: 95vh;
+    color: white;
+}
+
+.white {
+    float:right;
+    margin-top: 15%;
+    margin-right: 25%;
+}
+
+.headtext {
+    margin-top: 15%;
+    font-size: 5em;
+}
+
+.text-muted {
+    font-size: 1.6em;
+}
+
+.googleimg {
+    width: 30px;
+}
+
+.facebookimg {
+    width: 25px
+}
+
+.twitterimg {
+    width: 34px;
+}
+
+.From {
+    margin-top: 5%;
+    text-align: left;
+    margin-left: 15.2%;
+}

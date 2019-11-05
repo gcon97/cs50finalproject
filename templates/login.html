@@ -5,16 +5,36 @@ Log In
 {% endblock %}
 
 {% block main %}
-<form action="/login" method="post">
-    <div class="form-group">
-        <input autocomplete="off" autofocus class="form-control" name="username"
-            placeholder="Username" type="text">
+<div class="blue">
+    <h3 class="headtext">Trending Tracker</h3>
+    <small class="text-muted">Follow all the hot topics around the world</small>
+    <div class="From">
+        <p>Twitter <img class="twitterimg" src="/static/images/twitter.png"
+                alt="TwitterLogo"></p>
+        <p>Google <img class="googleimg" src="/static/images/google.png"
+                alt="GoogleLogo"></p>
+        <p>Facebook <img class="facebookimg"
+                src="/static/images/facebook.png"
+                alt="FacebookLogo"></p>
     </div>
-    <div class="form-group">
-        <input class="form-control" name="password" placeholder="Password"
-            type="password">
-    </div>
-    <button class="btn btn-primary" type="submit">Log In</button>
-</form>
-<a href="/change">Click here to change your password</a>
+</div>
+
+<div class="white">
+    <form action="/login" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control"
+                name="username"
+                placeholder="Username" type="text">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="password" placeholder="Password"
+                type="password">
+        </div>
+        <button class="btn btn-primary" type="submit">Sign In</button>
+        <button class="btn btn-primary" type="button"><a href="/register"></a>Sign
+            Up</button>
+    </form>
+</div>
+
+
 {% endblock %}

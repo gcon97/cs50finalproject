@@ -28,8 +28,8 @@ def register():
 
         hashed = generate_password_hash(request.form.get(
             "password"), method='pbkdf2:sha256', salt_length=8)
-        product = db.execute("INSERT INTO users(username, hash) VALUES(:username, :hashed)",
-                             username=request.form.get("username"), hashed=hashed)
+        product = db.execute("INSERT INTO users(username, hash) VALUE(:username, :hashed", {
+                             "username": request.form.get("username"), "hashed": hashed})
         if not product:
             return render_template("apology.html")
 
