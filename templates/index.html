@@ -9,42 +9,39 @@ Home
 
 
 <div class="twitter-trending">
-    <h2 class="trending-site twitter-heading">Twitter <img
-            class="twitterimg"
-            src="/static/images/twitterblue.png"
-            alt="Twitter Logo"></h2>
-    <div class="topic-container">
+        <h2 class="trending-site twitter-heading">Twitter <img class="twitterimg" src="/static/images/twitterblue.png" alt="Twitter Logo"></h2>
+        <div class="topic-container">
 
-    </div>
-    {% for trends in trending %}
+        </div>
+        {% for trends in ttrending %}
 
 
-    <h3 class="topic"><a href="{{trends['url']}}">{{trends['trend']}}</a></h3>
-    <small class="text-muted subHeading">{{trends['url']}}</small>
+        <h3 class="topic"><a href="{{trends['url']}}">{{trends['trend']}}</a></h3>
+        <small class="text-muted subHeading">{{trends['url']}}</small>
 
-    {% endfor %}
-    </div>
+        {% endfor %}
+</div>
+
 
 </div>
 
 <div class="google-trending">
-    <h2 class="trending-site google-heading">Google <img class="googleimg"
-            src="/static/images/google.png"
-            alt="Google Logo"></h2>
-    <h3 class="topic">Topic</h3>
-    <small class="text-muted subHeading">Lorem ipsum dolor sit amet,
-        consectetur
-        adipiscingelit.</small>
+        <h2 class="trending-site google-heading">Google <img class="googleimg" src="/static/images/google.png" alt="Google Logo"></h2>
+        {% for trends in gtrending %}
+
+
+        <h3 class="topic">{{trends['name']}}</h3>
+        <small class="text-muted subHeading">{{trends['sub']}}</small>
+
+        {% endfor %}
 </div>
 
 <div class="facebook-trending">
-    <h2 class="trending-site facebook-heading">Facebook <img class="facebookimg"
-            src="/static/images/facebookblue.png"
-            alt="Google Logo"></h2>
-    <h3 class="topic">Topic</h3>
-    <small class="text-muted subHeading">Lorem ipsum dolor sit amet,
-        consectetur
-        adipiscingelit.</small>
+        <h2 class="trending-site facebook-heading">Facebook <img class="facebookimg" src="/static/images/facebookblue.png" alt="Google Logo"></h2>
+        <h3 class="topic">Topic</h3>
+        <small class="text-muted subHeading">Lorem ipsum dolor sit amet,
+                consectetur
+                adipiscingelit.</small>
 </div>
 
 

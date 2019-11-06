@@ -7,6 +7,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from functools import wraps
 import sqlqueries
 import twitterTrending as tt
+import googleTrending as gt
 
 database = sqlite3.connect('trending.db')
 db = database.cursor()
@@ -104,8 +105,9 @@ def changepwd():
 @app.route("/")
 @login_required
 def index():
-    trending = tt.twitteruk7()
-    return render_template('index.html', trending=trending)
+    ttrending = tt.twitteruk7()
+    gtrending = gt.googleuk7()
+    return render_template('index.html', ttrending=ttrending, gtrending=gtrending)
 
 
 @app.route("/logout")
