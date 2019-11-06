@@ -63,7 +63,7 @@ main img
     width: 30px;
 }
 
-.facebookimg {
+.buzzimg {
     margin-top: -0.5%;
     width: 25px
 }
@@ -111,10 +111,10 @@ main img
     color:rgb(29, 161, 242);
 }
 .google-heading {
-    color: crimson;
+    color: rgb(238, 111, 6);
 }
-.facebook-heading {
-    color: rgb(1, 48, 202);
+.buzz-heading {
+    color: rgb(202, 1, 1);
 }
 .trending-site {
     margin-top: 5%;
@@ -154,7 +154,7 @@ main img
 
 
 
-.facebook-trending {
+.buzz-trending {
     position: absolute;
     float: left;
     margin-top: 0;
@@ -167,4 +167,13 @@ main img
 
 .topic-container {
     margin-top: -7%;
+}
+
+.buzz-topic {
+    float: left;
+    text-align: left;
+    font-size: 1.2em;
+    margin-left: 2%;
+    color: rgb(34, 34, 34);
+    padding-bottom: 2%;
 }

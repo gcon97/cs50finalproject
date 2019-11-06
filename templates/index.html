@@ -36,12 +36,11 @@ Home
         {% endfor %}
 </div>
 
-<div class="facebook-trending">
-        <h2 class="trending-site facebook-heading">Facebook <img class="facebookimg" src="/static/images/facebookblue.png" alt="Google Logo"></h2>
-        <h3 class="topic">Topic</h3>
-        <small class="text-muted subHeading">Lorem ipsum dolor sit amet,
-                consectetur
-                adipiscingelit.</small>
+<div class="buzz-trending">
+        <h2 class="trending-site buzz-heading">BuzzFeed<img class="buzzimg" src="/static/images/buzz.png" alt="BuzzFeed Logo"></h2>
+        {% for x in range(7) %}
+        <p class="buzz-topic">{{btrending[x]}}</h3>
+        {% endfor %}
 </div>
 
 

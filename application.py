@@ -8,6 +8,7 @@ from functools import wraps
 import sqlqueries
 import twitterTrending as tt
 import googleTrending as gt
+import buzzTrending as bt
 
 database = sqlite3.connect('trending.db')
 db = database.cursor()
@@ -107,7 +108,8 @@ def changepwd():
 def index():
     ttrending = tt.twitteruk7()
     gtrending = gt.googleuk7()
-    return render_template('index.html', ttrending=ttrending, gtrending=gtrending)
+    btrending = bt.buzzuk7()
+    return render_template('index.html', ttrending=ttrending, gtrending=gtrending, btrending=btrending)
 
 
 @app.route("/logout")
